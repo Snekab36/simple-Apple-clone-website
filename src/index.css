@@ -1,0 +1,87 @@
+/* -------------------------------------------
+   Tailwind Layers
+------------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------
+   Apple Font Import (San Francisco Pro)
+   Using Apple official CDN fallback
+------------------------------------------- */
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+
+/* -------------------------------------------
+   Base Styles (Apple-inspired design)
+------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    @apply text-gray-700;
+  }
+
+  a {
+    @apply text-blue-500 hover:underline;
+    transition: color 0.2s ease-in-out;
+  }
+
+  img {
+    @apply select-none;
+  }
+
+  /* Hide scrollbars for clean Apple aesthetic */
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+/* -------------------------------------------
+   Custom Utility Classes
+------------------------------------------- */
+@layer utilities {
+  /* Apple-style gradient background */
+  .apple-gradient {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  }
+
+  /* Subtle fade animation for smooth section transitions */
+  .fade-in {
+    @apply opacity-0;
+    animation: fadeIn 1.2s ease-in-out forwards;
+  }
+
+  /* Max width container for centered sections */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6;
+  }
+}
+
+/* -------------------------------------------
+   Keyframes for smooth animations
+------------------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
